@@ -1,21 +1,30 @@
-import streamlit as st
+import streamlit as st 
 
-st.title("Astrid Bg")
-st.caption("Soy estudiante de L. en matemáticas")
-st.caption("Otro mensaje")
-#titulos
-st.title("titulo de nivel 1")
-st.header("titulo de nivel 2")
-st.subheader("titulo de nivel 3")
-st.markdown("""Podemos poner un texto en **negrilla**, en *italica* o ***ambas*** 
- 
- Podemos dar color al texto. Por ejemplo, :blue[azul], 
- :violet[rosado]
+#1) crear las páginas
+txts=st.Page("paginas/Definiciones.py",title="Definiciones",default=True, 
+icon=":material/description:")
+cal=st.Page("paginas/Calculadora.py" ,title="Cálculadora de MTC", 
+icon=":material/calculate:")
+aps=st.Page("paginas/Aplicaciones.py",title="Evaluación",  
+icon=":material/description:")
+graphs =st.Page("paginas/Gráficas.py",title="¿Cómo usarlas?",
+icon=":material/check:")
+ejmp=st.Page("paginas/ejemplos.py",title="Ejemplos",
+icon=":material/add:")
+pres=st.Page("paginas/presentacion.py",title="¿Quién creó este aplicativo?",
+icon=":material/patient_list:")
+
+#crear la navegación 
+#pg=st.navigation([txts,inps,ejs])
+pg=st.navigation({"Teoría":[txts,graphs,ejmp],"Aplicacion":[cal,aps],"Acerca de":[pres]})
 
 
- """)
-#Ecuaciones 
 
-st.latex("a^2+b^2=c^2")
+#ejecutar
+pg.run()
 
-st.image("https://cdn.goconqr.com/uploads/media/image/25214865/desktop_b1661d3d-6ebc-4460-9b51-fb0b58670106.jpeg")
+
+
+
+
+
